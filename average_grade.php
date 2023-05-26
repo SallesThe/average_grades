@@ -7,6 +7,7 @@
         $firstGrade = $_POST['first_grade'];
         $secondGrade = $_POST['second_grade'];
         $averange = ($firstGrade + ($secondGrade * 2)) / 3;
+        $averange = number_format($averange, 1, ',', ',');
         if($averange > 7)
         {
             $msg = "The student's grade was $averange. $name approved"; 
