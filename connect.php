@@ -3,7 +3,7 @@
     {
         $id = "";
         $password = "";
-        $webhost = false;
+        $webhost = false; // false para Localhost, true para WebHosting
         if($webhost)
         {
             $id = "id20602905_";
@@ -16,9 +16,10 @@
         
         $conn = new mysqli($server, $user , $password, $database);
         
-        if($conn->connect_error)
+        if($conn->connect_errno)
         {
-            die("Error: " . $conn->connect_error);
+            echo "Error: " . $conn->connect_errno;
+            exit();
         }
 
         return $conn->query($sql);

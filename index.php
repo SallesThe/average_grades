@@ -1,4 +1,13 @@
-<?php include 'average_grade.php'; ?>
+<?php
+    include 'connect.php';
+    include 'average_grade.php';
+
+    if(isset($averange))
+    {
+        $sql = "INSERT INTO aluno(nome, nota) VALUES($name, $averange);";
+        Connect($sql);
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +21,7 @@
 <body>
     <header>
         <h1>Average grades</h1>
-        <h2> <?php echo $msg; ?></h2>
+        <h3 class=" <?php echo $tpMsg; ?> "> <?php echo $msg; ?></h3>
     </header>
     <main>
         <form action="index.php" method="post">
@@ -26,6 +35,8 @@
             <input type="submit" class="btn btn-primary" value="Send"> 
             <br>
             <a href="index.php" class="btn btn-secondary">New grade</a>
+            <br>
+            <a href="#" class="btn btn-warning">Student area</a>
         </form>
     </main>
 </body>
